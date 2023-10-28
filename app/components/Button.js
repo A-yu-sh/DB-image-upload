@@ -2,10 +2,8 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { signIn, signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 const SignInButton = () => {
-  const router = useRouter();
   const { data: session, status } = useSession();
 
   if (status === "authenticated") {
@@ -20,8 +18,10 @@ const SignInButton = () => {
   }
 
   return (
-    <div className="flex justify-center mt-5">
-      <button onClick={() => signIn("google")}>sign In</button>
+    <div className="flex justify-center mt-9">
+      <div className="">
+        <button onClick={() => signIn("google")}>sign In with Google</button>
+      </div>
     </div>
   );
 };

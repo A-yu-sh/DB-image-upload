@@ -1,22 +1,22 @@
 import { CONNECT_MONGO_DB } from "@/lib/ConnectMongoDB";
-import UserMODEL from "@/models/UserModel";
+import PRODUCT_MODEL from "@/models/ProductModel";
 import { NextResponse } from "next/server";
 
 export async function POST(request, response) {
-  const { name, email, provider } = await request.json();
+  const { name, description, image, number } = await request.json();
   await CONNECT_MONGO_DB();
-  await UserMODEL.create({ name, email, provider });
-  return NextResponse.json({ message: "user created" });
+  await PRODUCT_MODEL.create({ name, description, image, number });
+  return NextResponse.json({ message: "Data Uploaded" });
 }
 
 export async function GET() {
   await CONNECT_MONGO_DB();
-  const res = await UserMODEL.find();
+  const res = await PRODUCT_MODEL.find();
   return NextResponse.json({ res });
 }
 export async function DELETE(request) {
   const id = request.nextUrl.searchParams.get("id");
   await CONNECT_MONGO_DB();
-  await UserMODEL.findByIdAndDelete(id);
+  await PRODUCT_MODEL.findByIdAndDelete(id);
   return NextResponse.json({ message: "Data Deleted" });
 }
