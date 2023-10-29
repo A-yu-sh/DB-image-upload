@@ -7,6 +7,7 @@ const Navbar = () => {
       <Link href="/">Home Page</Link>
       <Link href="/user">Product Page</Link>
       <Link href="/admin">Admin Page</Link>
+      <Link href="/input">Elements Page</Link>
     </div>
   );
 };
