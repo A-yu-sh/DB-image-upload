@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 
 export async function POST(request) {
-  const { FirstName, LastName, UserName, Email, Password } =
+  const { FirstName, LastName, UserName, Email, Password, value } =
     await request.json();
   const Salt = await bcryptjs.genSalt(10);
   const SecPassword = await bcryptjs.hash(Password, Salt);
@@ -15,10 +15,11 @@ export async function POST(request) {
     UserName,
     Email,
     Password: SecPassword,
+    value,
   });
   return NextResponse.json({ message: "Created" });
 }
-export async function GET(request) {
+export async function GET() {
   await CONNECT_MONGO_DB();
   const res = await SignUpModel.find();
   return NextResponse.json(res);

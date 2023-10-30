@@ -6,6 +6,7 @@ const SignUpDetailsSchema = new mongoose.Schema({
   UserName: String,
   Email: String,
   Password: String,
+  value: String,
 });
 
 const SignUpModel =
