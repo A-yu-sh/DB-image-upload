@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import bcryptjs from "bcryptjs";
 
 const page = () => {
   const [FirstName, setFirstName] = useState("");
