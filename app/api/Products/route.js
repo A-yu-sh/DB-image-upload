@@ -4,3 +4,10 @@ export async function GET_DATA() {
   });
   return await res.json();
 }
+export async function GET_DATAA() {
+  const res = await fetch("http://localhost:3000/api/Product", {
+    cache: "no-store",
+  });
+  const data = await res.json();
+  return data;
+}
