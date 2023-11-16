@@ -5,6 +5,7 @@ const UserSCHEMA = new mongoose.Schema(
     name: String,
     email: String,
     provider: String,
+    Cart: [],
   },
   { timeStamps: true }
 );

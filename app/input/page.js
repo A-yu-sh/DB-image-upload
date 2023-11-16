@@ -31,6 +31,22 @@ const page = () => {
       alert("Uploaded");
     }
   };
+  const HandleCart = async (e) => {
+    e.preventDefault();
+    console.log(value);
+    const res = await fetch("http://localhost:3000/api/SignUp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Cart: value,
+      }),
+    });
+    if (res.ok) {
+      alert("Uploaded");
+    }
+  };
 
   return (
     <div>
@@ -78,7 +94,7 @@ const page = () => {
           <option value="opel">Opel</option>
           <option value="audi">Audi</option>
         </select>
-        <button onClick={HandleSubmit} className="">
+        <button onClick={(HandleSubmit, HandleCart)} className="">
           Log In
         </button>
       </div>
