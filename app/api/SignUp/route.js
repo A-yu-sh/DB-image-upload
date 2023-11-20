@@ -1,13 +1,13 @@
 import { CONNECT_MONGO_DB } from "@/lib/ConnectMongoDB";
 import SignUpModel from "@/models/SignUpModel";
 import { NextResponse } from "next/server";
-import bcryptjs from "bcryptjs";
+import bcrypt from "bcrypt";
 
 export async function POST(request) {
   const { FirstName, LastName, UserName, Email, Password, value } =
     await request.json();
-  const Salt = await bcryptjs.genSalt(10);
-  const SecPassword = await bcryptjs.hash(Password, Salt);
+  const Salt = await bcrypt.genSalt(10);
+  const SecPassword = await bcrypt.hash(Password, Salt);
   await CONNECT_MONGO_DB();
   await SignUpModel.create({
     FirstName,

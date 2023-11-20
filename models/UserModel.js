@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 
+const cartModel = new mongoose.Schema({
+  name: String,
+});
+
 const UserSCHEMA = new mongoose.Schema(
   {
     name: String,
     email: String,
     provider: String,
-    Cart: [],
+    Cart: [cartModel],
   },
   { timeStamps: true }
 );
