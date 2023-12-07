@@ -11,6 +11,7 @@ export default function Home() {
         RBAC_role based access control(rbac)
       </h1>
       <Navbar />
+      <SignInButton />
     </main>
   );
 }
