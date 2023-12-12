@@ -1,8 +1,6 @@
 "use client";
 import Navbar from "./components/Navbar";
 import SignInButton from "./components/Button";
-import { GET_DATA, GET_DATAA } from "./api/Products/route";
-import { useState } from "react";
 
 export default function Home() {
   return (
