@@ -5,6 +5,7 @@ const Page = () => {
   return (
     <div>
       <h1>WELCOME, ADMIN</h1>
+
       <div className="grid grid-cols-5 mt-20 mx-10">
         <h1>UserName</h1>
         <h1>UserEmail</h1>
